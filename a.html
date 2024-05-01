@@ -81,6 +81,9 @@ background-size:100%;
         z-index: 1;
         left: 25px;
     }
+    .panel:hover {
+     box-shadow: 0 12px 16px rgba(0,0,0,0.5)
+    }
     .panelbutton {
 	background-color: light grey;
 	border: 2px solid grey;
@@ -99,6 +102,33 @@ background-size:100%;
  color:white;
  box-shadow: 0 12px 16px rgba(0,0,0,0.5)
 }
+#alarmClock {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #fff;
+  border: 2px solid #000;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+}
+#clockFace {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+#clockTime {
+  font-size: 24px;
+  margin: 0;
+}
+
+#clockAmPm {
+  font-size: 14px;
+  margin: 0;
+}
+#alarmClock:hover {
+	 box-shadow: 0 12px 16px rgba(0,0,0,0.5)
+}
 </style>
 </head>
 <body>
@@ -112,6 +142,12 @@ background-size:100%;
 <button class="panelbutton" id="Asteroid" onclick="hidePanel()">Astroid</button>
 <button class="panelbutton" id="Doge" onclick="hidePanel()">Doge V3</button>
 </div>
+</div>
+<div id="alarmClock">
+  <div id="clockFace">
+    <p id="clockTime"></p>
+    <p id="clockAmPm"></p>
+  </div>
 </div>
 <script>
 function showPanel() {
@@ -132,9 +168,18 @@ panel.addEventListener("mouseleave", hidePanel);
 
 
 
-
-
-
+  function updateClock() {
+      const now = new Date();
+      let hours = now.getHours();
+      const minutes = now.getMinutes();
+      const seconds = now.getSeconds();
+      const amPm = hours >= 12 ? 'PM' : 'AM';
+      hours = hours % 12 || 12; // Convert to 12-hour format
+      const time = `${hours}:${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+      document.getElementById('clockTime').textContent = time;
+      document.getElementById('clockAmPm').textContent = amPm;
+    }
+    setInterval(updateClock, 1000);
 
 
 
