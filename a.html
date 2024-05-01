@@ -79,7 +79,7 @@ background-size:100%;
         box-shadow: 0 8px 16px rgba(0,0,0,0.2);
         padding: 10px;
         z-index: 1;
-        left: 50px;
+        left: 25px;
     }
     .panelbutton {
 	background-color: light grey;
@@ -107,10 +107,10 @@ background-size:100%;
 <button class="button" id="proxy">Proxy</button>
 <button class="button" id="settings">Settings</button>
 <div id="panel" class="panel">
-<button class="panelbutton" onclick="hidePanel()">Art Class</button>
-<button class="panelbutton" onclick="hidePanel()">Interstellar</button>
-<button class="panelbutton" onclick="hidePanel()">Astroid</button>
-<button class="panelbutton" onclick="hidePanel()">Doge V3</button>
+<button class="panelbutton" id="Art" onclick="hidePanel()">Art Class</button>
+<button class="panelbutton" id="Interstellar" onclick="hidePanel()">Interstellar</button>
+<button class="panelbutton" id="Asteroid" onclick="hidePanel()">Astroid</button>
+<button class="panelbutton" id="Doge" onclick="hidePanel()">Doge V3</button>
 </div>
 </div>
 <script>
@@ -196,8 +196,24 @@ panel.addEventListener("mouseleave", hidePanel);
             createIframe('./games.html');
         });
         $('#settings').click(function() {
-            createIframe('./settings.html')
-        })
+            createIframe('./settings.html');
+        });
+        $("#Art").click(function() {
+        	localStorage.setItem("proxy", "art");
+            createIframe('./art.html');
+        });
+        $("#Interstellar").click(function() {
+        	localStorage.setItem("proxy", "interstellar");
+            createIframe('./woah.html');
+        });
+        $("#Asteroid").click(function() {
+        	localStorage.setItem("proxy", "astroid");
+            createIframe('https://astroid.mathonline.click/worksheets/');
+        });
+        $("#Doge").click(function() {
+        	localStorage.setItem("proxy", "doge");
+            createIframe('./eh.html');
+        });
     });
 </script>
 </body>
