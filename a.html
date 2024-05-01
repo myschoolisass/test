@@ -82,14 +82,14 @@ background-size:100%;
         left: 50px;
     }
     .panelbutton {
-	background-color: white;
-	border: 2px solid blue;
-	color: green;
-	padding: 15px 32px;
+	background-color: light grey;
+	border: 2px solid grey;
+	color: dark grey;
+	padding: 5px 15px;
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
-	font-size:20px;
+	font-size:13px;
     cursor:pointer;
     transition-duration:0.4s;
     border-radius:6px;
@@ -107,10 +107,10 @@ background-size:100%;
 <button class="button" id="proxy">Proxy</button>
 <button class="button" id="settings">Settings</button>
 <div id="panel" class="panel">
-<button onclick="hidePanel()">Art Class</button>
-<button onclick="hidePanel()">Interstellar</button>
-<button onclick="hidePanel()">Astroid</button>
-<button onclick="hidePanel()">Doge V3</button>
+<button class="panelbutton" onclick="hidePanel()">Art Class</button>
+<button class="panelbutton" onclick="hidePanel()">Interstellar</button>
+<button class="panelbutton" onclick="hidePanel()">Astroid</button>
+<button class="panelbutton" onclick="hidePanel()">Doge V3</button>
 </div>
 </div>
 <script>
